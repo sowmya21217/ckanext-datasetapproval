@@ -154,7 +154,7 @@ class DatasetapprovalPlugin(plugins.SingletonPlugin,
     def get_user_dataset_labels(self, user_obj):
         labels = super(DatasetapprovalPlugin, self).get_user_dataset_labels(user_obj)
 
-        if user_obj and not user_obj.is_anonymous():
+        if user_obj and not user_obj.is_anonymous:
             if hasattr(user_obj, 'plugin_extras') and user_obj.plugin_extras:
                 if user_obj.plugin_extras.get('has_approval_permission', False):
                     labels = [x for x in labels if not x.startswith('member')]
