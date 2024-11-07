@@ -151,25 +151,23 @@ class DatasetapprovalPlugin(plugins.SingletonPlugin,
         return search_params
 
 
-       # IPermissionLabels
-       def get_user_dataset_labels(self, user_obj):
-       # Call the superclass implementation to get the base labels
-       labels = super(DatasetapprovalPlugin, self).get_user_dataset_labels(user_obj)
+def get_user_dataset_labels(self, user_obj):
+        # Call the superclass implementation to get the base labels
+        labels = super(DatasetapprovalPlugin, self).get_user_dataset_labels(user_obj)
 
-       # Check if the user object is valid and not anonymous
+        # Check if the user object is valid and not anonymous
         if user_obj and not user_obj.is_anonymous():  # Check if user_obj is not None and is authenticated
-         # Check if the user has plugin_extras attribute
-          if hasattr(user_obj, 'plugin_extras') and user_obj.plugin_extras:
-            # If the user has approval permission, modify labels
-            if user_obj.plugin_extras.get('has_approval_permission', False):
-                labels = [x for x in labels if not x.startswith('member')]
-                orgs = toolkit.get_action(u'organization_list_for_user')(
-                    {u'user': user_obj.id}, {u'permission': u'admin'}
-                )
-                labels.extend(u'member-%s' % o['id'] for o in orgs)
+            # Check if the user has plugin_extras attribute
+            if hasattr(user_obj, 'plugin_extras') and user_obj.plugin_extras:
+                # If the user has approval permission, modify labels
+                if user_obj.plugin_extras.get('has_approval_permission', False):
+                    labels = [x for x in labels if not x.startswith('member')]
+                    orgs = toolkit.get_action(u'organization_list_for_user')(
+                        {u'user': user_obj.id}, {u'permission': u'admin'}
+                    )
+                    labels.extend(u'member-%s' % o['id'] for o in orgs)
 
-     return labels
-
+        return labels
 
     # IBlueprint
     def get_blueprint(self):
