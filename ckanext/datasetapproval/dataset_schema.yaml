@@ -1,0 +1,530 @@
+cheming_version: 2
+dataset_type: dataset
+about: A reimplementation of the default CKAN dataset schema
+about_url: http://github.com/ckan/ckanext-scheming
+
+
+dataset_fields:
+
+- field_name: title
+  label: Title
+  preset: title
+  validators: not_empty unicode_safe
+  react_input: text
+
+- field_name: name
+  label: URL
+  preset: dataset_slug
+  form_placeholder: eg. my-dataset
+  react_input: dataset_slug
+
+- field_name: institution
+  label: Institution
+  preset: org_autocomplete
+  react_input: institution
+
+- field_name: tag_string
+  label: Keywords
+  preset: tag_string_autocomplete
+  form_placeholder: eg. economy, mental health, government
+  react_input: tags
+
+- field_name: theme
+  label: Theme
+  form_snippet: multiple_select_sublists.html
+  display_snippet: multiple_choice_sublists_links.html
+  react_input: multi_select_sublists
+  validators: not_empty unicode_safe
+  choices:
+  - value: gemet
+    label: GEMET
+    sub_items:
+      - value: addresses
+        label: Addresses
+        url: https://www.eionet.europa.eu/gemet/en/inspire-themes/ad
+      - value: administrative_units
+        label: Administrative units
+        url: https://www.eionet.europa.eu/gemet/en/inspire-themes/au
+      - value: agricultural_and_aquaculture_facilities
+        label: Agricultural and aquaculture facilities
+        url: https://www.eionet.europa.eu/gemet/en/inspire-themes/af
+      - value: area_management/restriction/regulation_zones_and_reporting_units
+        label: Area management/restriction/regulation zones and reporting units
+        url: https://www.eionet.europa.eu/gemet/en/inspire-themes/am
+      - value: atmospheric_conditions
+        label: Atmospheric conditions
+        url: https://www.eionet.europa.eu/gemet/en/inspire-themes/ac
+      - value: bio-geographical_regions
+        label: Bio-geographical regions
+        url: https://www.eionet.europa.eu/gemet/en/inspire-themes/br
+      - value: buildings
+        label: Buildings
+        url: https://www.eionet.europa.eu/gemet/en/inspire-themes/bu
+      - value: cadastral_parcels
+        label: Cadastral parcels
+        url: https://www.eionet.europa.eu/gemet/en/inspire-themes/cp
+      - value: coordinate_reference_systems
+        label: Coordinate reference systems
+        url: https://www.eionet.europa.eu/gemet/en/inspire-themes/rs
+      - value: elevation
+        label: Elevation
+        url: https://www.eionet.europa.eu/gemet/en/inspire-themes/el
+      - value: energy_resources
+        label: Energy resources
+        url: https://www.eionet.europa.eu/gemet/en/inspire-themes/er
+      - value: environmental_monitoring_facilities
+        label: Environmental monitoring facilities
+        url: https://www.eionet.europa.eu/gemet/en/inspire-themes/ef
+      - value: geographical_grid_systems
+        label: Geographical grid systems
+        url: https://www.eionet.europa.eu/gemet/en/inspire-themes/gg
+      - value: geographical_names
+        label: Geographical names
+        url: https://www.eionet.europa.eu/gemet/en/inspire-themes/gn
+      - value: geology
+        label: Geology
+        url: https://www.eionet.europa.eu/gemet/en/inspire-themes/ge
+      - value: habitats_and_biotopes
+        label: Habitats and biotopes
+        url: https://www.eionet.europa.eu/gemet/en/inspire-themes/hb
+      - value: human_health_and_safety
+        label: Human health and safety
+        url: https://www.eionet.europa.eu/gemet/en/inspire-themes/hh
+      - value: hydrography
+        label: Hydrography
+        url: https://www.eionet.europa.eu/gemet/en/inspire-themes/hy
+      - value: land_cover
+        label: Land cover
+        url: https://www.eionet.europa.eu/gemet/en/inspire-themes/lc
+      - value: land_use
+        label: Land use
+        url: https://www.eionet.europa.eu/gemet/en/inspire-themes/lu
+      - value: meteorological_geographical_features
+        label: Meteorological geographical features
+        url: https://www.eionet.europa.eu/gemet/en/inspire-themes/mf
+      - value: mineral_resources
+        label: Mineral resources
+        url: https://www.eionet.europa.eu/gemet/en/inspire-themes/mr
+      - value: natural_risk_zones
+        label: Natural risk zones
+        url: https://www.eionet.europa.eu/gemet/en/inspire-themes/nz
+      - value: oceanographic_geographical_features
+        label: Oceanographic geographical features
+        url: https://www.eionet.europa.eu/gemet/en/inspire-themes/of
+      - value: orthoimagery
+        label: Orthoimagery
+        url: https://www.eionet.europa.eu/gemet/en/inspire-themes/oi
+      - value: "population_distribution_\xE2\u20AC\u201D_demography"
+        label: "Population distribution \xE2\u20AC\u201D demography"
+        url: https://www.eionet.europa.eu/gemet/en/inspire-themes/pd
+      - value: production_and_industrial_facilities
+        label: Production and industrial facilities
+        url: https://www.eionet.europa.eu/gemet/en/inspire-themes/pf
+      - value: protected_sites
+        label: Protected sites
+        url: https://www.eionet.europa.eu/gemet/en/inspire-themes/ps
+      - value: sea_regions
+        label: Sea regions
+        url: https://www.eionet.europa.eu/gemet/en/inspire-themes/sr
+      - value: soil
+        label: Soil
+        url: https://www.eionet.europa.eu/gemet/en/inspire-themes/so
+      - value: species_distribution
+        label: Species distribution
+        url: https://www.eionet.europa.eu/gemet/en/inspire-themes/sd
+      - value: statistical_units
+        label: Statistical units
+        url: https://www.eionet.europa.eu/gemet/en/inspire-themes/su
+      - value: transport_networks
+        label: Transport networks
+        url: https://www.eionet.europa.eu/gemet/en/inspire-themes/tn
+      - value: utility_and_governmental_services
+        label: Utility and governmental services
+        url: https://www.eionet.europa.eu/gemet/en/inspire-themes/us
+
+  - value: cf_standard_names
+    label: CF standard names
+    sub_items:
+      - value: acoustic_area_backscattering_strength_in_sea_water
+        label: acoustic area backscattering strength in sea water
+        url: https://vocab.nerc.ac.uk/standard_name/acoustic_area_backscattering_strength_in_sea_water
+      - value: acoustic_signal_roundtrip_travel_time_in_sea_water
+        label: acoustic signal roundtrip travel time in sea water
+        url: https://vocab.nerc.ac.uk/standard_name/acoustic_area_backscattering_strength_in_sea_wateracoustic_signal_roundtrip_travel_time_in_sea_water
+      - value: acoustic_target_strength_in_sea_water
+        label: acoustic target strength in sea water
+        url: https://vocab.nerc.ac.uk/standard_name/acoustic_area_backscattering_strength_in_sea_wateracoustic_signal_roundtrip_travel_time_in_sea_wateracoustic_target_strength_in_sea_water
+      - value: acoustic_volume_backscattering_strength_in_sea_water
+        label: acoustic volume backscattering strength in sea water
+        url: https://vocab.nerc.ac.uk/standard_name/acoustic_area_backscattering_strength_in_sea_wateracoustic_signal_roundtrip_travel_time_in_sea_wateracoustic_target_strength_in_sea_wateracoustic_volume_backscattering_strength_in_sea_water
+      - value: aerodynamic_particle_diameter
+        label: aerodynamic particle diameter
+        url: https://vocab.nerc.ac.uk/standard_name/acoustic_area_backscattering_strength_in_sea_wateracoustic_signal_roundtrip_travel_time_in_sea_wateracoustic_target_strength_in_sea_wateracoustic_volume_backscattering_strength_in_sea_wateraerodynamic_particle_diameter
+      - value: aerodynamic_resistance
+        label: aerodynamic resistance
+        url: https://vocab.nerc.ac.uk/standard_name/acoustic_area_backscattering_strength_in_sea_wateracoustic_signal_roundtrip_travel_time_in_sea_wateracoustic_target_strength_in_sea_wateracoustic_volume_backscattering_strength_in_sea_wateraerodynamic_particle_diameteraerodynamic_resistance
+      - value: aerosol_angstrom_exponent
+        label: "aerosol angstrom exponent\n            DEPRECATED"
+        url: https://vocab.nerc.ac.uk/standard_name/acoustic_area_backscattering_strength_in_sea_wateracoustic_signal_roundtrip_travel_time_in_sea_wateracoustic_target_strength_in_sea_wateracoustic_volume_backscattering_strength_in_sea_wateraerodynamic_particle_diameteraerodynamic_resistanceaerosol_angstrom_exponent
+      - value: aerosol_type_in_atmosphere_layer_in_air
+        label: aerosol type in atmosphere layer in air
+        url: https://vocab.nerc.ac.uk/standard_name/acoustic_area_backscattering_strength_in_sea_wateracoustic_signal_roundtrip_travel_time_in_sea_wateracoustic_target_strength_in_sea_wateracoustic_volume_backscattering_strength_in_sea_wateraerodynamic_particle_diameteraerodynamic_resistanceaerosol_angstrom_exponentaerosol_type_in_atmosphere_layer_in_air
+      - value: age_of_sea_ice
+        label: age of sea ice
+        url: https://vocab.nerc.ac.uk/standard_name/acoustic_area_backscattering_strength_in_sea_wateracoustic_signal_roundtrip_travel_time_in_sea_wateracoustic_target_strength_in_sea_wateracoustic_volume_backscattering_strength_in_sea_wateraerodynamic_particle_diameteraerodynamic_resistanceaerosol_angstrom_exponentaerosol_type_in_atmosphere_layer_in_airage_of_sea_ice
+
+
+- field_name: subject
+  label: Subject
+  react_input: multi_select
+  form_snippet: multiple_select.html
+  display_snippet: multiple_choice_links.html
+  form_placeholder: The iso topic category, eg. https://inspire.ec.europa.eu/metadata-codelist/TopicCategory
+  validators: not_empty unicode_safe
+  choices:
+  - value: farming
+    label: farming
+    url: https://apps.usgs.gov/thesaurus/term-simple.php?thcode=15&code=001
+  - value: biota
+    label: biota
+    url: https://apps.usgs.gov/thesaurus/term-simple.php?thcode=15&code=002
+  - value: boundaries
+    label: boundaries
+    url: https://apps.usgs.gov/thesaurus/term-simple.php?thcode=15&code=003
+  - value: climatologymeteorologyatmosphere
+    label: climatologyMeteorologyAtmosphere
+    url: https://apps.usgs.gov/thesaurus/term-simple.php?thcode=15&code=004
+  - value: economy
+    label: economy
+    url: https://apps.usgs.gov/thesaurus/term-simple.php?thcode=15&code=005
+  - value: elevation
+    label: elevation
+    url: https://apps.usgs.gov/thesaurus/term-simple.php?thcode=15&code=006
+  - value: environment
+    label: environment
+    url: https://apps.usgs.gov/thesaurus/term-simple.php?thcode=15&code=007
+  - value: geoscientificinformation
+    label: geoscientificInformation
+    url: https://apps.usgs.gov/thesaurus/term-simple.php?thcode=15&code=008
+  - value: health
+    label: health
+    url: https://apps.usgs.gov/thesaurus/term-simple.php?thcode=15&code=009
+  - value: imagerybasemapsearthcover
+    label: imageryBaseMapsEarthCover
+    url: https://apps.usgs.gov/thesaurus/term-simple.php?thcode=15&code=010
+  - value: intelligencemilitary
+    label: intelligenceMilitary
+    url: https://apps.usgs.gov/thesaurus/term-simple.php?thcode=15&code=011
+  - value: inlandwaters
+    label: inlandWaters
+    url: https://apps.usgs.gov/thesaurus/term-simple.php?thcode=15&code=012
+  - value: location
+    label: location
+    url: https://apps.usgs.gov/thesaurus/term-simple.php?thcode=15&code=013
+  - value: oceans
+    label: oceans
+    url: https://apps.usgs.gov/thesaurus/term-simple.php?thcode=15&code=014
+  - value: planningcadastre
+    label: planningCadastre
+    url: https://apps.usgs.gov/thesaurus/term-simple.php?thcode=15&code=015
+  - value: society
+    label: society
+    url: https://apps.usgs.gov/thesaurus/term-simple.php?thcode=15&code=016
+  - value: structure
+    label: structure
+    url: https://apps.usgs.gov/thesaurus/term-simple.php?thcode=15&code=017
+  - value: transportation
+    label: transportation
+    url: https://apps.usgs.gov/thesaurus/term-simple.php?thcode=15&code=018
+  - value: utilitiescommunication
+    label: utilitiesCommunication
+    url: https://apps.usgs.gov/thesaurus/term-simple.php?thcode=15&code=019
+
+- field_name: type
+  label: Type
+  form_snippet: null
+  display_snippet: text.html
+
+- field_name: contact_points
+  label: Contact points
+  react_input: repeating_subfields
+  repeating_label: Contact point
+  repeating_subfields:
+  - field_name: first_name
+    label: First name
+  - field_name: last_name
+    label: Last name
+  - field_name: organisation
+    label: Organisation
+  - field_name: email
+    label: Email
+
+- field_name: creators
+  label: Creators
+  react_input: repeating_subfields
+  repeating_label: Creator
+  repeating_subfields:
+  - field_name: first_name
+    label: First name
+    required: false
+  - field_name: last_name
+    label: Last name
+    required: false
+  - field_name: organisation
+    label: Organisation
+    required: false
+  - field_name: email
+    label: Email
+    required: false
+
+- field_name: contributors
+  label: Contributors
+  react_input: repeating_subfields
+  repeating_label: Contributor
+  repeating_subfields:
+  - field_name: first_name
+    label: First name
+    required: false
+  - field_name: last_name
+    label: Last name
+    required: false
+  - field_name: organisation
+    label: Organisation
+    required: false
+  - field_name: email
+    label: Email
+    required: false
+
+- field_name: publisher
+  label: Publisher
+  form_snippet: null
+  display_snippet: text.html
+
+- field_name: doi_id
+  label: DOI Identifier
+  form_snippet: null
+  display_snippet: text.html
+  validators: unicode_safe
+
+- field_name: notes
+  label: Description
+  react_input: markdown
+  form_snippet: markdown.html
+  form_placeholder: eg. Some useful notes about the data
+  validators: not_empty unicode_safe
+
+- field_name: version
+  label: Version
+  form_placeholder: '1.0'
+  form_snippet: null
+  display_snippet: text.html
+
+# - field_name: has_part
+#   label: Has part
+#   preset: multiple_text
+#   validators: ignore_missing unicode_safe
+#   form_snippet: multiple_text.html
+#   display_snippet: multiple_text.html
+
+# - field_name: is_part_of
+#   label: Is part of
+#   preset: multiple_text
+#   validators: ignore_missing unicode_safe
+#   form_snippet: multiple_text.html
+#   display_snippet: multiple_text.html
+
+- field_name: releaseDate
+  label: Release date
+  react_input: date
+  display_snippet: date.html
+
+# - filed_name: has_version
+#   label: Has Version
+#   form_snippet: null
+#   display_snippet: text.html
+
+# - field_name: is_version_of
+#   label: Is version of
+#   form_snippet: null
+#   display_snippet: text.html
+
+
+- field_name: language
+  label: Language
+  validators: not_empty
+  preset: select
+  react_input: select
+  choices:
+  - value: en
+    label: English
+  - value: nor
+    label: Norwegian
+
+- field_name: conforms_to
+  label: Conforms to
+  react_input: text
+  form_snippet: text.html
+
+- field_name: provenance
+  label: Provenance
+  preset: json_object
+  react_input: json
+
+- field_name: source
+  label: Source
+  form_placeholder: http://example.com/dataset.json
+  display_property: foaf:homepage
+  display_snippet: link.html
+  react_input: url
+
+- field_name: spatial
+  label: Spatial
+  preset: json_object
+  react_input: json
+
+- field_name: dataset_status
+  label: Status
+  preset: select
+  react_input: select
+  choices:
+  - value: complete
+    label: COMPLETE
+  - value: in_work
+    label: IN WORK
+  - value: planned
+    label: PLANNED
+
+- field_name: is_referenced_by
+  label: Is referenced by
+  preset: select
+  react_input: select
+  choices:
+  - value: algorithm_documentation
+    label: ALGORITHM DOCUMENTATION
+  - value: algorithm_theoretical_basis_document_atbd_
+    label: ALGORITHM THEORETICAL BASIS DOCUMENT (ATBD)
+  - value: anomalies
+    label: ANOMALIES
+  - value: case_study
+    label: CASE STUDY
+  - value: data_citation_policy
+    label: DATA CITATION POLICY
+  - value: data_product_specification
+    label: DATA PRODUCT SPECIFICATION
+  - value: data_quality
+    label: DATA QUALITY
+  - value: data_recipe
+    label: DATA RECIPE
+  - value: deliverables_checklist
+    label: DELIVERABLES CHECKLIST
+  - value: general_documentation
+    label: GENERAL DOCUMENTATION
+  - value: how_to
+    label: HOW-TO
+  - value: important_notice
+    label: IMPORTANT NOTICE
+  - value: instrument_sensor_calibration_documentation
+    label: INSTRUMENT/SENSOR CALIBRATION DOCUMENTATION
+  - value: micro_article
+    label: MICRO ARTICLE
+  - value: pi_documentation
+    label: PI DOCUMENTATION
+  - value: processing_history
+    label: PROCESSING HISTORY
+  - value: product_history
+    label: PRODUCT HISTORY
+  - value: product_quality_assessment
+    label: PRODUCT QUALITY ASSESSMENT
+  - value: product_usage
+    label: PRODUCT USAGE
+  - value: production_history
+    label: PRODUCTION HISTORY
+  - value: publications
+    label: PUBLICATIONS
+  - value: read_me
+    label: READ-ME
+  - value: related_articles
+    label: RELATED ARTICLES
+  - value: requirements_and_design
+    label: REQUIREMENTS AND DESIGN
+  - value: science_data_product_software_documentation
+    label: SCIENCE DATA PRODUCT SOFTWARE DOCUMENTATION
+  - value: science_data_product_validation
+    label: SCIENCE DATA PRODUCT VALIDATION
+  - value: user_feedback_page
+    label: USER FEEDBACK PAGE
+  - value: user_s_guide
+    label: USER'S GUIDE
+
+- field_name: version_notes
+  label: Version notes
+  form_snippet: markdown.html
+  form_placeholder: eg. Some useful notes about the data
+  react_input: markdown
+  validators: not_empty unicode_safe
+
+- field_name: license_id
+  label: License
+  react_input: license
+  form_snippet: license.html
+  help_text: License definitions and additional information can be found at http://opendefinition.org/
+
+- field_name: release_date
+  label: Release date
+  form_snippet: null
+  display_snippet: date.html
+
+- field_name: extent
+  label: Extent
+  display_snippet: text.html
+  form_snippet: null
+
+- field_name: terms_agreed
+  label: Terms
+  form_snippet: null
+  display_snippet: null
+  validators: ignore_missing
+
+- field_name: import_done
+  label: import_done
+  form_snippet: null
+  display_snippet: null
+  validators: ignore_missing boolean_validator
+  output_validators: boolean_validator
+
+- field_name: cron
+  label: cron
+  form_snippet: null
+  display_snippet: null
+  validators: ignore_missing scheming_valid_json_object
+  output_validators: scheming_load_json
+
+- field_name: import_source
+  label: import_source
+  form_snippet: null
+  display_snippet: null
+  validators: ignore_missing
+
+- field_name: state
+  label: state
+  form_snippet: null
+  display_snippet: null
+
+resource_fields:
+
+- field_name: url
+  label: URL
+  preset: resource_url_upload
+
+- field_name: name
+  label: Name
+  form_placeholder: eg. January 2011 Gold Prices
+
+- field_name: description
+  label: Description
+  form_snippet: markdown.html
+  form_placeholder: Some useful notes about the data
+
+- field_name: format
+  label: Format
+  preset: resource_format_autocomplete
